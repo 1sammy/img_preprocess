@@ -1,0 +1,13 @@
+preprocess.c
+
+uses ImageMagick to convert a directory of images <input_image_dir> (image 
+format support from libmagickcore) into a greyscale pixel [n][h_res][v_res] 
+byte array, and write the bytes row-major order to <output_file>
+
+output_file format:
+0x00 - 0x01: num_images
+0x02 - 0x03: out_h_res
+0x04 - 0x05: out_v_res
+0x06 - ... : pixel_data
+
+./preprocess <input_image_dir> <output_file> <out_h_res> <out_v_res>
